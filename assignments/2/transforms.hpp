@@ -34,48 +34,66 @@ void SetTransform(A02 *A)
 	// this is an example on how to highlight a piece and move it.
 	// to put it in place, just replace the following line with an identity matrix,
 	// that is: A->SetMatrix(0,  M, false);
-	M = glm::rotate(glm::translate(glm::mat4(1.0f), glm::vec3(-0.3f, 0.0f, -1.6f)),
-					glm::radians(15.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-	//	M = glm::mat4(1.0f);			// to put this piece in places, uncomment this line and delete the two above
-	A->SetMatrix(1, M, true);
+	// M = glm::rotate(glm::translate(glm::mat4(1.0f), glm::vec3(-0.3f, 0.0f, -1.6f)),
+	// 				glm::radians(15.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+	M = glm::mat4(1.0f); // to put this piece in places, uncomment this line and delete the two above
+	A->SetMatrix(1, M, false);
 
 	// FROM THIS POINT ON, you have to find the correct transform to solve the puzzle.
-	M = glm::mat4(1.0f);
+	M = glm::scale(glm::vec3(3.0, 3.0, 3.0));
+	M *= glm::translate(glm::vec3(-2.0, 0.0, -1.0));
 	A->SetMatrix(2, M, false);
 
-	M = glm::mat4(1.0f);
+	M = glm::rotate(glm::radians<float>(-15.0), glm::vec3(0.0, 0.0, 1.0));
+	M *= glm::translate(glm::vec3(0.0, 0.0, 1.0));
 	A->SetMatrix(3, M, false);
 
-	M = glm::mat4(1.0f);
+	M = glm::scale(glm::vec3(-1.0, 1.0, 1.0));
+	M *= glm::translate(glm::vec3(-2.0, 0.0, 1.0));
 	A->SetMatrix(4, M, false);
 
-	M = glm::mat4(1.0f);
+	M = glm::translate(glm::vec3(4.0, 0.0, 4.0));
 	A->SetMatrix(5, M, false);
 
-	M = glm::mat4(1.0f);
+	M = glm::scale(glm::vec3(2.0, 1.0, 1.25));
+	M *= glm::translate(glm::vec3(0.0, 0.0, -1.0));
 	A->SetMatrix(6, M, false);
 
-	M = glm::mat4(1.0f);
+	M = glm::shearZ3D(glm::mat4(1.0), -0.5f, 0.0f);
+	M *= glm::translate(glm::vec3(2.0, 0.0, -1.0));
 	A->SetMatrix(7, M, false);
 
-	M = glm::mat4(1.0f);
+	M = glm::rotate(glm::radians<float>(90.0), glm::vec3(0.0, 1.0, 0.0));
+	M = glm::shearX3D(M, 0.0f, -0.5f);
+	M = glm::shearZ3D(M, -0.65f, 0.0f);
+	M *= glm::scale(glm::vec3(2.0, 1.0, 1.5));
+	M *= glm::translate(glm::vec3(-0.34, 2.0, 1.0 / 3.0));
 	A->SetMatrix(8, M, false);
 
 	M = glm::mat4(1.0f);
 	A->SetMatrix(9, M, false);
 
-	M = glm::mat4(1.0f);
+	M = glm::rotate(glm::radians<float>(90.0), glm::vec3(0.0, 1.0, 0.0));
+	M *= glm::scale(glm::vec3(2.0, 2.0, 2.0));
+	M *= glm::translate(glm::vec3(-1.0, 1.0, 1.5));
 	A->SetMatrix(10, M, false);
 
-	M = glm::mat4(1.0f);
+	M = glm::rotate(glm::radians<float>(135.0), glm::vec3(0.0, 1.0, 0.0));
+	M *= glm::translate(glm::vec3(-2.71, 2.0, -0.875));
 	A->SetMatrix(11, M, false);
 
-	M = glm::mat4(1.0f);
+	M = glm::rotate(glm::radians<float>(90.0), glm::vec3(0.0, 1.0, 0.0));
+	M *= glm::scale(glm::vec3(0.5, 1.0, 1.0));
+	M *= glm::translate(glm::vec3(1.0, 2.0, 0.0));
 	A->SetMatrix(12, M, false);
 
-	M = glm::mat4(1.0f);
+	M = glm::rotate(glm::radians<float>(45.0), glm::vec3(0.0, 1.0, 0.0));
+	M *= glm::rotate(glm::radians<float>(-45.0), glm::vec3(0.0, 0.0, 1.0));
+	M *= glm::rotate(glm::radians<float>(-90.0), glm::vec3(1.0, 0.0, 0.0));
+	M *= glm::translate(glm::vec3(-0.92, -0.7, 0.92));
 	A->SetMatrix(13, M, false);
 
-	M = glm::mat4(1.0f);
+	M = glm::rotate(glm::radians<float>(150), glm::vec3(0.0, 1.0, 0.0));
+	M *= glm::translate(glm::vec3(2.225, 2.0, 0.14));
 	A->SetMatrix(14, M, false);
 }
